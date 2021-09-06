@@ -17,7 +17,7 @@ Basic division of labor:
   Nodes: know how to execute commands
   Intfs: know how to configure themselves
   Links: know how to connect nodes together
-
+    
 Intf: basic interface object that can configure itself
 TCIntf: interface with bandwidth limiting and delay via tc
 

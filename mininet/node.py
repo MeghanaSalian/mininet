@@ -1092,6 +1092,7 @@ class OVSSwitch( Switch ):
         self._uuids = []  # controller UUIDs
         self.batch = batch
         self.commands = []  # saved commands for batch startup
+        self.addQlink_has_been_called = False
 
     @classmethod
     def setup( cls ):

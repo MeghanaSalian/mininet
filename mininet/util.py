@@ -323,7 +323,17 @@ def dumpNodeConnections( nodes ):
             if intf.link:
                 intfs = [ intf.link.intf1, intf.link.intf2 ]
                 intfs.remove( intf )
-                output( intfs[ 0 ] )
+                # *********** To hide stemp switch from net command
+                if str(intfs[0])[0:5] == 'stemp':
+                    stemp_node = intfs[0].node
+                    stemp_intfs = stemp_node.intfList()
+                    stemp_intfs.remove(intfs[0])
+                    stemp2_link = stemp_intfs[ 1 ].link
+                    stemp2_link_intfs = [stemp2_link.intf1, stemp2_link.intf2]
+                    stemp2_link_intfs.remove(stemp_intfs[ 1 ])
+                    output(stemp2_link_intfs[0])
+                else:
+                    output( intfs[ 0 ] )
             else:
                 output( ' ' )
 
